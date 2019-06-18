@@ -1,8 +1,64 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 
 import { addToDo, toggleCompleted, deleteCompleted } from '../actions';
 import './list.css'
+
+const Wrapperz = styled.section`
+  padding: 4em;
+  background: papayawhip;
+  width: 70%;
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: 5px 5px #FFF8EC;
+  display: flex;
+  flex-flow: column nowrap;
+  
+`;
+
+const Titlez = styled.h1`
+  font-size: 8em;
+  text-align: center;
+  color: #45776A;
+  text-shadow: 4px 4px white;
+`;
+
+const Taskz = styled.h4`
+font-size: 34px;
+text-align: center;
+color: #777397;
+cursor: pointer;
+padding: 5px;
+`
+
+const Inputz= styled.input`
+    height: 40px;
+    border: 1px solid white;
+    font-size: 24px;
+    
+`
+
+const Fieldz  = styled.div`
+margin-top: 20px;
+display: flex;
+flex-flow: row nowrap;
+justify-content: space-evenly;
+    button{
+        font-size: 24px;
+        width: 40%;
+        max-width: 200px;
+        border-radius: 15px;
+        color: #45776A;
+        border-color: white;
+        &:hover{
+            color: white;
+            background-color: #45776A;
+            transition-duration: 0.2s;
+            cursor: pointer;
+        }
+    }
+`
 
 
 
@@ -39,26 +95,28 @@ class ToDoList extends React.Component {
 
     render() {
         return(
-                <div>
-                    <h1>ToDo List!</h1>
+                <Wrapperz>
+                    <Titlez>ToDo List!</Titlez>
                     <div className="list">
                         {this.props.todos.map((todo, index) => (
-                            <h4 
+                            <Taskz 
                             onClick={e => this.toggleCompleted(e, index)} key={index}
                             className={todo.completed ? 'completed' : ''}>
                             {todo.task}
-                            </h4>
+                            </Taskz>
                         ))}
                     </div>
-                    <input 
-                        type='text'
-                        value={this.state.newToDo}
-                        onChange={this.handleChanges}
-                        placeholder="add new task"
-                    />
-                    <button onClick={this.addToDo}>Add new Task</button>
-                    <button onClick={this.deleteCompleted}>Delete Completed tasks</button>
-                </div>
+                    <Inputz 
+                            type='text'
+                            value={this.state.newToDo}
+                            onChange={this.handleChanges}
+                            placeholder="add new task"
+                        />
+                    <Fieldz>  
+                        <button onClick={this.addToDo}>Add new Task</button>
+                        <button onClick={this.deleteCompleted}>Delete Completed tasks</button>
+                    </Fieldz>
+                </Wrapperz>
         );
     }
 };
