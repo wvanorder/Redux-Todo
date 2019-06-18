@@ -6,7 +6,7 @@ import { addToDo, toggleCompleted, deleteCompleted } from '../actions';
 import './list.css'
 
 const Wrapperz = styled.section`
-  padding: 4em;
+  padding: 2em;
   background: papayawhip;
   width: 70%;
   margin: 30px auto;
@@ -21,7 +21,9 @@ const Titlez = styled.h1`
   font-size: 8em;
   text-align: center;
   color: #45776A;
-  text-shadow: 4px 4px white;
+  text-shadow: 5px 5px white;
+  margin-bottom: -20px;
+  margin-top: 0px;
 `;
 
 const Taskz = styled.h4`
@@ -29,7 +31,7 @@ font-size: 34px;
 text-align: center;
 color: #777397;
 cursor: pointer;
-padding: 5px;
+margin: 15px 0px 15px 0px;
 `
 
 const Inputz= styled.input`
